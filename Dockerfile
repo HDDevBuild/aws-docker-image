@@ -23,8 +23,8 @@ RUN apt-get update && apt-get install -y \
     openssl \
     && rm -rf /var/lib/apt/lists/*
 
-ADD https://raw.githubusercontent.com/moby/moby/master/hack/dind/dockerd-entrypoint.sh /usr/local/bin/dockerd-entrypoint.sh
-RUN chmod +x /usr/local/bin/dockerd-entrypoint.sh
+RUN curl -fsSL https://raw.githubusercontent.com/moby/moby/master/hack/dind/dockerd-entrypoint.sh -o /usr/local/bin/dockerd-entrypoint.sh \
+    && chmod +x /usr/local/bin/dockerd-entrypoint.sh
 # Install AWS CLI v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
     && unzip awscliv2.zip \
