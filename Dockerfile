@@ -7,7 +7,6 @@ RUN apt-get update && apt-get install -y \
     curl \
     unzip \
     ca-certificates \
-    docker.io \
     openssh-client \
     jq \
     openssl \
@@ -39,7 +38,6 @@ RUN pip install \
 
 # Show versions (debug)
 RUN git --version \
-    && docker --version \
     && python3 --version \
     && pip --version \
     && aws --version \
