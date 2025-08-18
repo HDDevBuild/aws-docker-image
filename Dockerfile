@@ -2,15 +2,27 @@
 FROM python:3.11-slim
 
 # Install essential Linux packages
+# RUN apt-get update && apt-get install -y \
+#     git \
+#     curl \
+#     unzip \
+#     ca-certificates \
+#     openssh-client \
+#     jq \
+#     openssl \
+#     && rm -rf /var/lib/apt/lists/*
+
 RUN apt-get update && apt-get install -y \
+    docker.io \
     git \
     curl \
     unzip \
     ca-certificates \
-    openssh-client \
     jq \
+    openssh-client \
     openssl \
     && rm -rf /var/lib/apt/lists/*
+
 
 # Install AWS CLI v2
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
